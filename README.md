@@ -2,7 +2,7 @@
 2. [Explain what regularization is and why it is useful](#2-explain-what-regularization-is-and-why-it-is-useful)
 3. [What’s the difference between L1 and L2 regularization?](#3-whats-the-difference-between-l1-and-l2-regularization)
 4. [How would you validate a model you created to generate a predictive model of a quantitative outcome variable using multiple regression?](#4-how-would-you-validate-a-model-you-created-to-generate-a-predictive-model-of-a-quantitative-outcome-variable-using-multiple-regression)
-5. [Explain what precision and recall are. How do they relate to the ROC curve?](#)
+5. [Explain what precision and recall are. How do they relate to the ROC curve?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
