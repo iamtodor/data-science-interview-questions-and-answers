@@ -3,7 +3,8 @@
 3. [What’s the difference between L1 and L2 regularization?](#3-whats-the-difference-between-l1-and-l2-regularization)
 4. [How would you validate a model you created to generate a predictive model of a quantitative outcome variable using multiple regression?](#4-how-would-you-validate-a-model-you-created-to-generate-a-predictive-model-of-a-quantitative-outcome-variable-using-multiple-regression)
 5. [Explain what precision and recall are. How do they relate to the ROC curve?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
-6. [Is it better to have too many false positives, or too many false negatives?](#)
+6. [Is it better to have too many false positives, or too many false negatives?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
+7. [How do you deal with unbalanced binary classification?](#)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -86,3 +87,36 @@ It depends on the question as well as on the domain for which we are trying to s
 In medical testing, false negatives may provide a falsely reassuring message to patients and physicians that disease is absent, when it is actually present. This sometimes leads to inappropriate or inadequate treatment of both the patient and their disease. So, it is desired to have too many false positive.
 
 For spam filtering, a false positive occurs when spam filtering or spam blocking techniques wrongly classify a legitimate email message as spam and, as a result, interferes with its delivery. While most anti-spam tactics can block or filter a high percentage of unwanted emails, doing so without creating significant false-positive results is a much more demanding task. So, we prefer too many false negatives over many false positives.
+
+## 7. How do you deal with unbalanced binary classification?
+Imbalanced data typically refers to a problem with classification problems where the classes are not represented equally.
+For example, you may have a 2-class (binary) classification problem with 100 instances (rows). A total of 80 instances are labeled with Class-1 and the remaining 20 instances are labeled with Class-2.
+
+This is an imbalanced dataset and the ratio of Class-1 to Class-2 instances is 80:20 or more concisely 4:1.
+You can have a class imbalance problem on two-class classification problems as well as multi-class classification problems. Most techniques can be used on either.
+The remaining discussions will assume a two-class classification problem because it is easier to think about and describe.
+1. Can You Collect More Data?</br>f
+A larger dataset might expose a different and perhaps more balanced perspective on the classes.
+More examples of minor classes may be useful later when we look at resampling your dataset.
+2. Try Changing Your Performance Metric</br>
+Accuracy is not the metric to use when working with an imbalanced dataset. We have seen that it is misleading.
+From that post, I recommend looking at the following performance measures that can give more insight into the accuracy of the model than traditional classification accuracy:
+  - [Confusion Matrix](https://en.wikipedia.org/wiki/Confusion_matrix): A breakdown of predictions into a table showing correct predictions (the diagonal) and the types of incorrect predictions made (what classes incorrect predictions were assigned).
+  - [Precision](https://en.wikipedia.org/wiki/Information_retrieval#Precision): A measure of a classifiers exactness. Precision is the number of True Positives divided by the number of True Positives and False Positives. Put another way, it is the number of positive predictions divided by the total number of positive class values predicted. It is also called the [Positive Predictive Value (PPV)](https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values). Precision can be thought of as a measure of a classifiers exactness. A low precision can also indicate a large number of False Positives.
+  - [Recall](https://en.wikipedia.org/wiki/Information_retrieval#Recall): A measure of a classifiers completeness. Recall is the number of True Positives divided by the number of True Positives and the number of False Negatives. Put another way it is the number of positive predictions divided by the number of positive class values in the test data. It is also called Sensitivity or the True Positive Rate. Recall can be thought of as a measure of a classifiers completeness. A low recall indicates many False Negatives.
+  - [F1 Score (or F-score)](https://en.wikipedia.org/wiki/F1_score): A weighted average of precision and recall.
+I would also advise you to take a look at the following:
+  - Kappa (or [Cohen’s kappa](https://en.wikipedia.org/wiki/Cohen%27s_kappa)): Classification accuracy normalized by the imbalance of the classes in the data.
+ROC Curves: Like precision and recall, accuracy is divided into sensitivity and specificity and models can be chosen based on the balance thresholds of these values.
+3. Try Resampling Your Dataset
+  * You can add copies of instances from the under-represented class called over-sampling (or more formally sampling with replacement)
+  * You can delete instances from the over-represented class, called under-sampling.
+5. Try Different Algorithms
+6. Try Penalized Models</br>
+You can use the same algorithms but give them a different perspective on the problem.
+Penalized classification imposes an additional cost on the model for making classification mistakes on the minority class during training. These penalties can bias the model to pay more attention to the minority class.
+Often the handling of class penalties or weights are specialized to the learning algorithm. There are penalized versions of algorithms such as penalized-SVM and penalized-LDA.
+Using penalization is desirable if you are locked into a specific algorithm and are unable to resample or you’re getting poor results. It provides yet another way to “balance” the classes. Setting up the penalty matrix can be complex. You will very likely have to try a variety of penalty schemes and see what works best for your problem.
+7. Try a Different Perspective</br>
+Taking a look and thinking about your problem from these perspectives can sometimes shame loose some ideas.
+Two you might like to consider are anomaly detection and change detection.
