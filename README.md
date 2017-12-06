@@ -1,6 +1,7 @@
 1. [Why do you use feature selection?](#why-do-you-use-feature-selection)
 2. [Explain what regularization is and why it is useful](#explain-what-regularization-is-and-why-it-is-useful)
 3. [What’s the difference between L1 and L2 regularization?](#whats-the-difference-between-l1-and-l2-regularization)
+4. [How would you validate a model you created to generate a predictive model of a quantitative outcome variable using multiple regression?](#how-would-you-validate-a-model-you-created-to–generate-a-predictive-model-of-a-quantitative-outcome-variable-using-multiple-regression)
 
 ## Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -34,3 +35,11 @@ The difference between their properties can be promptly summarized as follows:
 
 **Solution uniqueness** is a simpler case but requires a bit of imagination. First, this picture below:
 ![alt text](images/regularization3.png)
+
+## How would you validate a model you created to generate a predictive model of a quantitative outcome variable using multiple regression?
+[Proposed methods](http://support.sas.com/resources/papers/proceedings12/333-2012.pdf) for model validation:
+* If the values predicted by the model are far outside of the response variable range, this would immediately indicate poor estimation or model inaccuracy.
+* If the values seem to be reasonable, examine the parameters; any of the following would indicate poor estimation or multi-collinearity: opposite signs of expectations, unusually large or small values, or observed inconsistency when the model is fed new data.
+* Use the model for prediction by feeding it new data, and use the [coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) (R squared) as a model validity measure.
+* Use data splitting to form a separate dataset for estimating model parameters, and another for validating predictions.
+* Use [jackknife resampling](https://en.wikipedia.org/wiki/Jackknife_resampling) if the dataset contains a small number of instances, and measure validity with R squared and [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error) (MSE).
