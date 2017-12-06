@@ -4,7 +4,7 @@
 4. [How would you validate a model you created to generate a predictive model of a quantitative outcome variable using multiple regression?](#4-how-would-you-validate-a-model-you-created-to-generate-a-predictive-model-of-a-quantitative-outcome-variable-using-multiple-regression)
 5. [Explain what precision and recall are. How do they relate to the ROC curve?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
 6. [Is it better to have too many false positives, or too many false negatives?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
-7. [How do you deal with unbalanced binary classification?](#)
+7. [How do you deal with unbalanced binary classification?](#7-how-do-you-deal-with-unbalanced-binary-classification)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -95,7 +95,7 @@ For example, you may have a 2-class (binary) classification problem with 100 ins
 This is an imbalanced dataset and the ratio of Class-1 to Class-2 instances is 80:20 or more concisely 4:1.
 You can have a class imbalance problem on two-class classification problems as well as multi-class classification problems. Most techniques can be used on either.
 The remaining discussions will assume a two-class classification problem because it is easier to think about and describe.
-1. Can You Collect More Data?</br>f
+1. Can You Collect More Data?</br>
 A larger dataset might expose a different and perhaps more balanced perspective on the classes.
 More examples of minor classes may be useful later when we look at resampling your dataset.
 2. Try Changing Your Performance Metric</br>
