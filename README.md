@@ -31,5 +31,6 @@ Regularization is a very important technique in machine learning to prevent over
 ![alt text](images/regularization1.png)
 The difference between their properties can be promptly summarized as follows:
 ![alt text](images/regularization2.png)
+
 **Solution uniqueness** is a simpler case but requires a bit of imagination. First, this picture below:
 ![alt text](images/regularization3.png)
