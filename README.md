@@ -1,6 +1,6 @@
-[Why do you use feature selection?](#why-do-you-use-feature-selection)
-[Explain what regularization is and why it is useful](#explain-what-regularization-is-and-why-it-is-useful)
-[What’s the difference between L1 and L2 regularization?](#whats-the-difference-between-l1-and-l2-regularization)
+1. [Why do you use feature selection?](#why-do-you-use-feature-selection)
+2. [Explain what regularization is and why it is useful](#explain-what-regularization-is-and-why-it-is-useful)
+3. [What’s the difference between L1 and L2 regularization?](#whats-the-difference-between-l1-and-l2-regularization)
 
 ## Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
