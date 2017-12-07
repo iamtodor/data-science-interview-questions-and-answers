@@ -5,6 +5,7 @@
 5. [Explain what precision and recall are. How do they relate to the ROC curve?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
 6. [Is it better to have too many false positives, or too many false negatives?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
 7. [How do you deal with unbalanced binary classification?](#7-how-do-you-deal-with-unbalanced-binary-classification)
+8. [What is statistical power?](#)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -120,3 +121,15 @@ Using penalization is desirable if you are locked into a specific algorithm and 
 7. Try a Different Perspective</br>
 Taking a look and thinking about your problem from these perspectives can sometimes shame loose some ideas.
 Two you might like to consider are anomaly detection and change detection.
+
+## 8. What is statistical power?
+[Statistical power or sensitivity](https://en.wikipedia.org/wiki/Statistical_power) of a binary hypothesis test is the probability that the test correctly rejects the null hypothesis (H0) when the alternative hypothesis (H1) is true.
+
+It can be equivalently thought of as the probability of accepting the alternative hypothesis (H1) when it is true—that is, the ability of a test to detect an effect, if the effect actually exists.
+
+To put in another way, [Statistical power](https://effectsizefaq.com/2010/05/31/what-is-statistical-power/) is the likelihood that a study will detect an effect when the effect is present. The higher the statistical power, the less likely you are to make a Type II error (concluding there is no effect when, in fact, there is).
+
+A type I error (or error of the first kind) is the incorrect rejection of a true null hypothesis. Usually a type I error leads one to conclude that a supposed effect or relationship exists when in fact it doesn't. Examples of type I errors include a test that shows a patient to have a disease when in fact the patient does not have the disease, a fire alarm going on indicating a fire when in fact there is no fire, or an experiment indicating that a medical treatment should cure a disease when in fact it does not.
+
+A type II error (or error of the second kind) is the failure to reject a false null hypothesis. Examples of type II errors would be a blood test failing to detect the disease it was designed to detect, in a patient who really has the disease; a fire breaking out and the fire alarm does not ring; or a clinical trial of a medical treatment failing to show that the treatment works when really it does.
+![alt text](images/statistical-power.png)
