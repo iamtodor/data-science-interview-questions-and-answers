@@ -8,7 +8,7 @@
 8. [What is statistical power?](#8-what-is-statistical-power)
 9. [What are bias and variance, and what are their relation to modeling data?](#9-what-are-bias-and-variance-and-what-are-their-relation-to-modeling-data)
 10. [What if the classes are imbalanced? What if there are more than 2 groups?](#10-what-if-the-classes-are-imbalanced-what-if-there-are-more-than-2-groups)
-11. [What are some ways I can make my model more robust to outliers?](#)
+11. [What are some ways I can make my model more robust to outliers?](#11-what-are-some-ways-i-can-make-my-model-more-robust-to-outliers)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
