@@ -7,7 +7,7 @@
 7. [How do you deal with unbalanced binary classification?](#7-how-do-you-deal-with-unbalanced-binary-classification)
 8. [What is statistical power?](#8-what-is-statistical-power)
 9. [What are bias and variance, and what are their relation to modeling data?](#9-what-are-bias-and-variance-and-what-are-their-relation-to-modeling-data)
-10. [What if the classes are imbalanced? What if there are more than 2 groups?](#)
+10. [What if the classes are imbalanced? What if there are more than 2 groups?](#10-what-if-the-classes-are-imbalanced-what-if-there-are-more-than-2-groups)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -202,11 +202,11 @@ One way of resolving the trade-off is to use [mixture models](https://en.wikiped
 Binary classification involves classifying the data into two groups, e.g. whether or not a customer buys a particular product or not (Yes/No), based on independent variables such as gender, age, location etc.
 
 As the target variable is not continuous, binary classification model predicts the probability of a target variable to be Yes/No. To evaluate such a model, a metric called the confusion matrix is used, also called the classification or co-incidence matrix. With the help of a confusion matrix, we can calculate important performance measures:
-* True Positive Rate (TPR) or Hit Rate or Recall or Sensitivity = TP / (TP + FN)
-* Precision = TP / (TP + FP)
+* True Positive Rate (TPR) or Recall or Sensitivity = TP / (TP + FN)
+* [Precision](https://github.com/iamtodor/data-science-interview-questions-and-answers#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve) = TP / (TP + FP)
 * False Positive Rate(FPR) or False Alarm Rate = 1 - Specificity = 1 - (TN / (TN + FP))
 * Accuracy = (TP + TN) / (TP + TN + FP + FN)
-* Error Rate = 1 – accuracy or (FP + FN) / (TP + TN + FP + FN)
+* Error Rate = 1 – Accuracy
 * F-measure: 2 / ( (1 / Precision) + (1 / Recall) )
 * ROC (Receiver Operating Characteristics) = plot of FPR vs TPR
 * AUC (Area Under the Curve)
