@@ -8,6 +8,7 @@
 8. [What is statistical power?](#8-what-is-statistical-power)
 9. [What are bias and variance, and what are their relation to modeling data?](#9-what-are-bias-and-variance-and-what-are-their-relation-to-modeling-data)
 10. [What if the classes are imbalanced? What if there are more than 2 groups?](#10-what-if-the-classes-are-imbalanced-what-if-there-are-more-than-2-groups)
+11. [What are some ways I can make my model more robust to outliers?](#)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -207,6 +208,15 @@ As the target variable is not continuous, binary classification model predicts t
 * False Positive Rate(FPR) or False Alarm Rate = 1 - Specificity = 1 - (TN / (TN + FP))
 * Accuracy = (TP + TN) / (TP + TN + FP + FN)
 * Error Rate = 1 – Accuracy
-* F-measure: 2 / ( (1 / Precision) + (1 / Recall) )
+* F-measure = 2 / ((1 / Precision) + (1 / Recall)) = 2 * (precision * recall) / (precision + recall)
 * ROC (Receiver Operating Characteristics) = plot of FPR vs TPR
 * AUC (Area Under the Curve)
+
+## 11. What are some ways I can make my model more robust to outliers?
+There are several ways to make a model more robust to outliers, from different points of view (data preparation or model building). An outlier in the question and answer is assumed being unwanted, unexpected, or a must-be-wrong value to the human’s knowledge so far (e.g. no one is 200 years old) rather than a rare event which is possible but rare.
+
+Outliers are usually defined in relation to the distribution. Thus outliers could be removed in the pre-processing step (before any learning step), by using standard deviations (for normality) or interquartile ranges (for not normal/unknown) as threshold levels.
+
+Moreover, data transformation (e.g. log transformation) may help if data have a noticeable tail. When outliers related to the sensitivity of the collecting instrument which may not precisely record small values, Winsorization may be useful. This type of transformation (named after Charles P. Winsor (1895–1951)) has the same effect as clipping signals (i.e. replaces extreme data values with less extreme values).  Another option to reduce the influence of outliers is using mean absolute difference rather mean squared error.
+
+For model building, some models are resistant to outliers (e.g. tree-based approaches) or non-parametric tests. Similar to the median effect, tree models divide each node into two in each split. Thus, at each split, all data points in a bucket could be equally treated regardless of extreme values they may have.
