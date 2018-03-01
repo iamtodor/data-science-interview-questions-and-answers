@@ -11,7 +11,8 @@
 11. [What are some ways I can make my model more robust to outliers?](#11-what-are-some-ways-i-can-make-my-model-more-robust-to-outliers)
 12. [In unsupervised learning, if a ground truth about a dataset is unknown, how can we determine the most useful number of clusters to be?](https://github.com/iamtodor/data-science-interview-questions-and-answers#12-in-unsupervised-learning-if-a-ground-truth-about-a-dataset-is-unknown-how-can-we-determine-the-most-useful-number-of-clusters-to-be)
 13. [Define variance](https://github.com/iamtodor/data-science-interview-questions-and-answers#13-define-variance)
-14. [Describe the differences between and use cases for box plots and histograms]()
+14. [Expected value](https://github.com/iamtodor/data-science-interview-questions-and-answers#14-expected-value)
+15. [Describe the differences between and use cases for box plots and histograms](https://github.com/iamtodor/data-science-interview-questions-and-answers#15-describe-the-differences-between-and-use-cases-for-box-plots-and-histograms)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -236,7 +237,23 @@ Var(X) = E[(X - m)^2], m=E[X]
 
 Мера разброса значений случайной величины относительно её математического ожидания.
 
-## 14. Describe the differences between and use cases for box plots and histograms
+## 14. Expected value
+Математи́ческое ожидание — [среднее значение случайной величины](https://ru.wikipedia.org/wiki/%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F_%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD%D0%B0) ([распределение вероятностей](https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2%D0%B5%D1%80%D0%BE%D1%8F%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9) случайной величины, рассматривается в теории вероятностей). Значение, которое случайная величина принимает с наибольшей вероятностью.
+
+Предположим теперь, что мы знаем закон распределения случайной величины x, то есть знаем, что случайная величина x может принимать значения x1, x2, ..., xk с вероятностями p1, p2, ..., pk.
+Математическое ожидание Mx случайной величины x равно.
+Математическое ожидание случайной величины X (обозначается M(X) или реже E(X)) характеризует среднее значение случайной величины (дискретной или непрерывной). Мат. ожидание - это первый начальный момент заданной СВ.
+
+Математическое ожидание относят к так называемым характеристикам положения распределения (к которым также принадлежат мода и медиана). Эта характеристика описывает некое усредненное положение случайной величины на числовой оси. Скажем, если матожидание случайной величины - срока службы лампы, равно 100 часов, то считается, что значения срока службы сосредоточены (с обеих сторон) от этого значения (с тем или иным разбросом, о котором уже говорит дисперсия).
+Математическое ожидание дискретной случайной величины Х вычисляется как сумма произведений значений xi, которые принимает СВ Х, на соответствующие вероятности pi:
+```python
+import numpy as np
+X = [3,4,5,6,7]
+P = [0.1,0.2,0.3,0.4,0.5]
+np.sum(np.dot(X, P))
+```
+
+## 15. Describe the differences between and use cases for box plots and histograms
 A [histogram](http://www.brighthubpm.com/six-sigma/13307-what-is-a-histogram/) is a type of bar chart that graphically displays the frequencies of a data set. Similar to a bar chart, a histogram plots the frequency, or raw count, on the Y-axis (vertical) and the variable being measured on the X-axis (horizontal).
 
 The only difference between a histogram and a bar chart is that a histogram displays frequencies for a group of data, rather than an individual data point; therefore, no spaces are present between the bars. Typically, a histogram groups data into small chunks (four to eight values per bar on the horizontal axis), unless the range of data is so great that it easier to identify general distribution trends with larger groupings.
