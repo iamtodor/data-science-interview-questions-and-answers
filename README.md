@@ -11,6 +11,7 @@
 11. [What are some ways I can make my model more robust to outliers?](#11-what-are-some-ways-i-can-make-my-model-more-robust-to-outliers)
 12. [In unsupervised learning, if a ground truth about a dataset is unknown, how can we determine the most useful number of clusters to be?](https://github.com/iamtodor/data-science-interview-questions-and-answers#12-in-unsupervised-learning-if-a-ground-truth-about-a-dataset-is-unknown-how-can-we-determine-the-most-useful-number-of-clusters-to-be)
 13. [Define variance](https://github.com/iamtodor/data-science-interview-questions-and-answers#13-define-variance)
+14. [Describe the differences between and use cases for box plots and histograms]()
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -230,6 +231,16 @@ DBSCAN - Density-Based Spatial Clustering of Applications with Noise. Finds core
 
 ## 13. Define variance
 Variance is the expectation of the squared deviation of a random variable from its mean. Informally, it measures how far a set of (random) numbers are spread out from their average value. The variance is the square of the standard deviation, the second central moment of a distribution, and the covariance of the random variable with itself.
-Мера разброса значений случайной величины относительно её математического ожидания.
+
 Var(X) = E[(X - m)^2], m=E[X]
 
+Мера разброса значений случайной величины относительно её математического ожидания.
+
+## 14. Describe the differences between and use cases for box plots and histograms
+A [histogram](http://www.brighthubpm.com/six-sigma/13307-what-is-a-histogram/) is a type of bar chart that graphically displays the frequencies of a data set. Similar to a bar chart, a histogram plots the frequency, or raw count, on the Y-axis (vertical) and the variable being measured on the X-axis (horizontal).
+
+The only difference between a histogram and a bar chart is that a histogram displays frequencies for a group of data, rather than an individual data point; therefore, no spaces are present between the bars. Typically, a histogram groups data into small chunks (four to eight values per bar on the horizontal axis), unless the range of data is so great that it easier to identify general distribution trends with larger groupings.
+
+A box plot, also called a [box-and-whisker](http://www.brighthubpm.com/six-sigma/43824-using-box-and-whiskers-plots/) plot, is a chart that graphically represents the five most important descriptive values for a data set. These values include the minimum value, the first quartile, the median, the third quartile, and the maximum value. When graphing this five-number summary, only the horizontal axis displays values. Within the quadrant, a vertical line is placed above each of the summary numbers. A box is drawn around the middle three lines (first quartile, median, and third quartile) and two lines are drawn from the box’s edges to the two endpoints (minimum and maximum).
+Boxplots are better for comparing distributions than histograms!
+![alt text](images/histogram-vs-boxplot.png)
