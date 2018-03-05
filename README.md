@@ -13,7 +13,7 @@
 13. [Define variance](https://github.com/iamtodor/data-science-interview-questions-and-answers#13-define-variance)
 14. [Expected value](https://github.com/iamtodor/data-science-interview-questions-and-answers#14-expected-value)
 15. [Describe the differences between and use cases for box plots and histograms](https://github.com/iamtodor/data-science-interview-questions-and-answers#15-describe-the-differences-between-and-use-cases-for-box-plots-and-histograms)
-16. [How would you find an anomaly in a distribution?]()
+16. [How would you find an anomaly in a distribution?](https://github.com/iamtodor/data-science-interview-questions-and-answers#16-how-would-you-find-an-anomaly-in-a-distribution)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
