@@ -1,3 +1,4 @@
+0. [Есть два стула](#0-Есть-два-стула)
 1. [Why do you use feature selection?](#1-why-do-you-use-feature-selection)
 2. [Explain what regularization is and why it is useful](#2-explain-what-regularization-is-and-why-it-is-useful)
 3. [What’s the difference between L1 and L2 regularization?](#3-whats-the-difference-between-l1-and-l2-regularization)
@@ -14,6 +15,11 @@
 14. [Expected value](https://github.com/iamtodor/data-science-interview-questions-and-answers#14-expected-value)
 15. [Describe the differences between and use cases for box plots and histograms](https://github.com/iamtodor/data-science-interview-questions-and-answers#15-describe-the-differences-between-and-use-cases-for-box-plots-and-histograms)
 16. [How would you find an anomaly in a distribution?](https://github.com/iamtodor/data-science-interview-questions-and-answers#16-how-would-you-find-an-anomaly-in-a-distribution)
+
+## 0. Есть два стула
+Есть два стула, на одном пики точены, на другом х;; д;;;ны, на какой сядешь, на какой мать посадишь?
+
+Ответ: Возьму пики точены, срублю хуи дрочены, сам сяду и мать посажу.
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
