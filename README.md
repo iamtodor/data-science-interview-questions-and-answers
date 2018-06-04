@@ -1,21 +1,32 @@
-1. [Why do you use feature selection?](#1-why-do-you-use-feature-selection)
-2. [Explain what regularization is and why it is useful](#2-explain-what-regularization-is-and-why-it-is-useful)
-3. [What’s the difference between L1 and L2 regularization?](#3-whats-the-difference-between-l1-and-l2-regularization)
-4. [How would you validate a model you created to generate a predictive model of a quantitative outcome variable using multiple regression?](#4-how-would-you-validate-a-model-you-created-to-generate-a-predictive-model-of-a-quantitative-outcome-variable-using-multiple-regression)
-5. [Explain what precision and recall are. How do they relate to the ROC curve?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
-6. [Is it better to have too many false positives, or too many false negatives?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
-7. [How do you deal with unbalanced binary classification?](#7-how-do-you-deal-with-unbalanced-binary-classification)
-8. [What is statistical power?](#8-what-is-statistical-power)
-9. [What are bias and variance, and what are their relation to modeling data?](#9-what-are-bias-and-variance-and-what-are-their-relation-to-modeling-data)
-10. [What if the classes are imbalanced? What if there are more than 2 groups?](#10-what-if-the-classes-are-imbalanced-what-if-there-are-more-than-2-groups)
-11. [What are some ways I can make my model more robust to outliers?](#11-what-are-some-ways-i-can-make-my-model-more-robust-to-outliers)
-12. [In unsupervised learning, if a ground truth about a dataset is unknown, how can we determine the most useful number of clusters to be?](https://github.com/iamtodor/data-science-interview-questions-and-answers#12-in-unsupervised-learning-if-a-ground-truth-about-a-dataset-is-unknown-how-can-we-determine-the-most-useful-number-of-clusters-to-be)
-13. [Define variance](https://github.com/iamtodor/data-science-interview-questions-and-answers#13-define-variance)
-14. [Expected value](https://github.com/iamtodor/data-science-interview-questions-and-answers#14-expected-value)
-15. [Describe the differences between and use cases for box plots and histograms](https://github.com/iamtodor/data-science-interview-questions-and-answers#15-describe-the-differences-between-and-use-cases-for-box-plots-and-histograms)
-16. [How would you find an anomaly in a distribution?](https://github.com/iamtodor/data-science-interview-questions-and-answers#16-how-would-you-find-an-anomaly-in-a-distribution)
-17. [How do you deal with outliers in your data?](https://github.com/iamtodor/data-science-interview-questions-and-answers#17-how-do-you-deal-with-outliers-in-your-data)
-18. [How do you deal with sparse data?](https://github.com/iamtodor/data-science-interview-questions-and-answers#18-how-do-you-deal-with-sparse-data)
+- [1. Why do you use feature selection?](#1-why-do-you-use-feature-selection)
+    - [Filter Methods](#filter-methods)
+    - [Embedded Methods](#embedded-methods)
+    - [Misleading](#misleading)
+    - [Overfitting](#overfitting)
+- [2. Explain what regularization is and why it is useful.](#2-explain-what-regularization-is-and-why-it-is-useful)
+- [3. What’s the difference between L1 and L2 regularization?](#3-whats-the-difference-between-l1-and-l2-regularization)
+- [4. How would you validate a model you created to generate a predictive model of a quantitative outcome variable using multiple regression?](#4-how-would-you-validate-a-model-you-created-to-generate-a-predictive-model-of-a-quantitative-outcome-variable-using-multiple-regression)
+- [5. Explain what precision and recall are. How do they relate to the ROC curve?](#5-explain-what-precision-and-recall-are-how-do-they-relate-to-the-roc-curve)
+- [6. Is it better to have too many false positives, or too many false negatives?](#6-is-it-better-to-have-too-many-false-positives--or-too-many-false-negatives)
+- [7. How do you deal with unbalanced binary classification?](#7-how-do-you-deal-with-unbalanced-binary-classification)
+- [8. What is statistical power?](#8-what-is-statistical-power)
+- [9. What are bias and variance, and what are their relation to modeling data?](#9-what-are-bias-and-variance--and-what-are-their-relation-to-modeling-data)
+    - [Approaches](#approaches)
+- [10. What if the classes are imbalanced? What if there are more than 2 groups?](#10-what-if-the-classes-are-imbalanced-what-if-there-are-more-than-2-groups)
+- [11. What are some ways I can make my model more robust to outliers?](#11-what-are-some-ways-i-can-make-my-model-more-robust-to-outliers)
+- [12. In unsupervised learning, if a ground truth about a dataset is unknown, how can we determine the most useful number of clusters to be?](#12-in-unsupervised-learning--if-a-ground-truth-about-a-dataset-is-unknown--how-can-we-determine-the-most-useful-number-of-clusters-to-be)
+- [13. Define variance](#13-define-variance)
+- [14. Expected value](#14-expected-value)
+- [15. Describe the differences between and use cases for box plots and histograms](#15-describe-the-differences-between-and-use-cases-for-box-plots-and-histograms)
+- [16. How would you find an anomaly in a distribution?](#16-how-would-you-find-an-anomaly-in-a-distribution)
+    - [Statistical methods](#statistical-methods)
+    - [Метрические методы](#)
+- [17. How do you deal with outliers in your data?](#17-how-do-you-deal-with-outliers-in-your-data)
+- [18. How do you deal with sparse data?](#18-how-do-you-deal-with-sparse-data)
+- [19. Big Data Engineer Can you explain what REST is?](#19-big-data-engineer-can-you-explain-what-rest-is)
+- [20. Logistic regression](#20-logistic-regression)
+- [21. What is the effect on the coefficients of logistic regression if two predictors are highly correlated? What are the confidence intervals of the coefficients?](#21-what-is-the-effect-on-the-coefficients-of-logistic-regression-if-two-predictors-are-highly-correlated-what-are-the-confidence-intervals-of-the-coefficients)
+- [22. What’s the difference between Gaussian Mixture Model and K-Means?](#22-whats-the-difference-between-gaussian-mixture-model-and-k-means)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -298,3 +309,70 @@ One option is to try a transformation. Square root and log transformations both 
 We could take a look at L1 regularization since it best fits to the sparse data and do feature selection. If linear relationship - linear regression either - svm. 
 
 Also it would be nice to use one-hot-encoding or bag-of-words. A one hot encoding is a representation of categorical variables as binary vectors. This first requires that the categorical values be mapped to integer values. Then, each integer value is represented as a binary vector that is all zero values except the index of the integer, which is marked with a 1.
+
+## 19. Big Data Engineer Can you explain what REST is?
+
+REST stands for Representational State Transfer. (It is sometimes spelled "ReST".) It relies on a stateless, client-server, cacheable communications protocol -- and in virtually all cases, the HTTP protocol is used.
+REST is an architecture style for designing networked applications. The idea is simple HTTP is used to make calls between machines.
+* In many ways, the World Wide Web itself, based on HTTP, can be viewed as a REST-based architecture.
+RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations.
+REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls) and Web Services (SOAP, WSDL, et al.). Later, we will see how much more simple REST is.
+* Despite being simple, REST is fully-featured; there's basically nothing you can do in Web Services that can't be done with a RESTful architecture.
+REST is not a "standard". There will never be a W3C recommendation for REST, for example. And while there are REST programming frameworks, working with REST is so simple that you can often "roll your own" with standard library features in languages like Perl, Java, or C#.
+
+## 20. Logistic regression
+
+Log odds - raw output from the model; odds - exponent from the output of the model. Probability of the output - odds / (1+odds).
+
+## 21. What is the effect on the coefficients of logistic regression if two predictors are highly correlated? What are the confidence intervals of the coefficients?
+When predictor variables are correlated, the estimated regression coefficient of any one variable depends on which other predictor variables are included in the model. When predictor variables are correlated, the precision of the estimated regression coefficients decreases as more predictor variables are added to the model.
+
+In statistics, multicollinearity (also collinearity) is a phenomenon in which two or more predictor variables in a multiple regression model are highly correlated, meaning that one can be linearly predicted from the others with a substantial degree of accuracy. In this situation the coefficient estimates of the multiple regression may change erratically in response to small changes in the model or the data. Multicollinearity does not reduce the predictive power or reliability of the model as a whole, at least within the sample data set; it only affects calculations regarding individual predictors. That is, a multiple regression model with correlated predictors can indicate how well the entire bundle of predictors predicts the outcome variable, but it may not give valid results about any individual predictor, or about which predictors are redundant with respect to others.
+
+Последствия мультиколлинеарности:
+* Оценки коэффициентов остаются несмещенными
+* Стандартные ошибки коэффициентов увеличиваются
+* Вычисленные t-статистики занижены.
+* Оценки становится очень чувствительными к изменению спецификации и изменению отдельных наблюдений.
+* Общее качество уравнения, а также оценки переменных, не связанных мультиколлинеарностью, остаются незатронутыми.
+* Чем ближе мультиколлинеарность к совершенной (строгой), тем серьезнее ее последствия.
+
+Индикаторы мультиколлинеарности:
+1. Высокий R2 и незначимые коэффициенты.
+2. Сильная парная корреляция предикторов.
+3. Сильные частные корреляции предикторов.
+4. Высокий VIF – variance inflation factor.
+
+Confidence interval (CI) is a type of interval estimate (of a population parameter) that is computed from the observed data. The confidence level is the frequency (i.e., the proportion) of possible confidence intervals that contain the true value of their corresponding parameter. In other words, if confidence intervals are constructed using a given confidence level in an infinite number of independent experiments, the proportion of those intervals that contain the true value of the parameter will match the confidence level.
+
+Confidence intervals consist of a range of values (interval) that act as good estimates of the unknown population parameter. However, the interval computed from a particular sample does not necessarily include the true value of the parameter. Since the observed data are random samples from the true population, the confidence interval obtained from the data is also random. If a corresponding hypothesis test is performed, the confidence level is the complement of the level of significance, i.e. a 95% confidence interval reflects a significance level of 0.05. If it is hypothesized that a true parameter value is 0 but the 95% confidence interval does not contain 0, then the estimate is significantly different from zero at the 5% significance level.
+
+The desired level of confidence is set by the researcher (not determined by data). Most commonly, the 95% confidence level is used. However, other confidence levels can be used, for example, 90% and 99%.
+
+Factors affecting the width of the confidence interval include the size of the sample, the confidence level, and the variability in the sample. A larger sample size normally will lead to a better estimate of the population parameter.
+A Confidence Interval is a range of values we are fairly sure our true value lies in.
+
+`X  ±  Z*s/√(n)`, X is the mean, Z is the chosen Z-value from the table, s is the standard deviation, n is the number of samples. The value after the ± is called the margin of error.
+
+## 22. What’s the difference between Gaussian Mixture Model and K-Means?
+Let's says we are aiming to break them into three clusters. K-means will start with the assumption that a given data point belongs to one cluster.
+
+Choose a data point. At a given point in the algorithm, we are certain that a point belongs to a red cluster. In the next iteration, we might revise that belief, and be certain that it belongs to the green cluster. However, remember, in each iteration, we are absolutely certain as to which cluster the point belongs to. This is the "hard assignment".
+
+What if we are uncertain? What if we think, well, I can't be sure, but there is 70% chance it belongs to the red cluster, but also 10% chance its in green, 20% chance it might be blue. That's a soft assignment. The Mixture of Gaussian model helps us to express this uncertainty. It starts with some prior belief about how certain we are about each point's cluster assignments. As it goes on, it revises those beliefs. But it incorporates the degree of uncertainty we have about our assignment.
+
+Kmeans: find kk to minimize `(x−μk)^2`
+
+Gaussian Mixture (EM clustering) : find kk to minimize `(x−μk)^2/σ^2`
+
+The difference (mathematically) is the denominator “σ^2”, which means GM takes variance into consideration when it calculates the measurement.
+Kmeans only calculates conventional Euclidean distance.
+In other words, Kmeans calculate distance, while GM calculates “weighted” distance.
+
+**K means**:
+* Hard assign a data point to one particular cluster on convergence.
+* It makes use of the L2 norm when optimizing (Min {Theta} L2 norm point and its centroid coordinates).
+
+**EM**:
+* Soft assigns a point to clusters (so it give a probability of any point belonging to any centroid).
+* It doesn't depend on the L2 norm, but is based on the Expectation, i.e., the probability of the point belonging to a particular cluster. This makes K-means biased towards spherical clusters.
