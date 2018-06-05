@@ -27,6 +27,16 @@
 - [20. Logistic regression](#20-logistic-regression)
 - [21. What is the effect on the coefficients of logistic regression if two predictors are highly correlated? What are the confidence intervals of the coefficients?](#21-what-is-the-effect-on-the-coefficients-of-logistic-regression-if-two-predictors-are-highly-correlated-what-are-the-confidence-intervals-of-the-coefficients)
 - [22. What’s the difference between Gaussian Mixture Model and K-Means?](#22-whats-the-difference-between-gaussian-mixture-model-and-k-means)
+- [23. Describe how Gradient Boosting works.](#23-describe-how-gradient-boosting-works)
+  - [AdaBoost the First Boosting Algorithm](#adaboost-the-first-boosting-algorithm)
+    - [Loss Function](#loss-function)
+    - [Weak Learner](#weak-learner)
+    - [Additive Model](#additive-model)
+  - [Improvements to Basic Gradient Boosting](#improvements-to-basic-gradient-boosting)
+    - [Tree Constraints](#tree-constraints)
+    - [Weighted Updates](#weighted-updates)
+    - [Stochastic Gradient Boosting](#stochastic-gradient-boosting)
+    - [Penalized Gradient Boosting](#penalized-gradient-boosting)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -376,3 +386,125 @@ In other words, Kmeans calculate distance, while GM calculates “weighted” di
 **EM**:
 * Soft assigns a point to clusters (so it give a probability of any point belonging to any centroid).
 * It doesn't depend on the L2 norm, but is based on the Expectation, i.e., the probability of the point belonging to a particular cluster. This makes K-means biased towards spherical clusters.
+
+## 23. Describe how Gradient Boosting works.
+The idea of boosting came out of the idea of whether a weak learner can be modified to become better.
+
+Gradient boosting relies on regression trees (even when solving a classification problem) which minimize **MSE**. Selecting a prediction for a leaf region is simple: to minimize MSE we should select an average target value over samples in the leaf. The tree is built greedily starting from the root: for each leaf a split is selected to minimize MSE for this step.
+
+To begin with, gradient boosting is an ensembling technique, which means that prediction is done by an ensemble of simpler estimators. While this theoretical framework makes it possible to create an ensemble of various estimators, in practice we almost always use GBDT — gradient boosting over decision trees. 
+
+The aim of gradient boosting is to create (or "train") an ensemble of trees, given that we know how to train a single decision tree. This technique is called **boosting** because we expect an ensemble to work much better than a single estimator.
+
+Here comes the most interesting part. Gradient boosting builds an ensemble of trees **one-by-one**, then the predictions of the individual trees **are summed**: D(x)=d​tree 1​​(x)+d​tree 2​​(x)+...
+
+The next decision tree tries to cover the discrepancy between the target function f(x) and the current ensemble prediction **by reconstructing the residual**.
+
+For example, if an ensemble has 3 trees the prediction of that ensemble is:
+D(x)=d​tree 1​​(x)+d​tree 2​​(x)+d​tree 3​​(x). The next tree (tree 4) in the ensemble should complement well the existing trees and minimize the training error of the ensemble.
+
+In the ideal case we'd be happy to have: D(x)+d​tree 4​​(x)=f(x).
+
+To get a bit closer to the destination, we train a tree to reconstruct the difference between the target function and the current predictions of an ensemble, which is called the **residual**: R(x)=f(x)−D(x). Did you notice? If decision tree completely reconstructs R(x), the whole ensemble gives predictions without errors (after adding the newly-trained tree to the ensemble)! That said, in practice this never happens, so we instead continue the iterative process of ensemble building.
+
+### AdaBoost the First Boosting Algorithm
+The weak learners in AdaBoost are decision trees with a single split, called decision stumps for their shortness.
+
+AdaBoost works by weighting the observations, putting more weight on difficult to classify instances and less on those already handled well. New weak learners are added sequentially that focus their training on the more difficult patterns.
+**Gradient boosting involves three elements:**
+1. A loss function to be optimized.
+2. A weak learner to make predictions.
+3. An additive model to add weak learners to minimize the loss function.
+
+#### Loss Function
+The loss function used depends on the type of problem being solved.
+It must be differentiable, but many standard loss functions are supported and you can define your own.
+For example, regression may use a squared error and classification may use logarithmic loss.
+A benefit of the gradient boosting framework is that a new boosting algorithm does not have to be derived for each loss function that may want to be used, instead, it is a generic enough framework that any differentiable loss function can be used.
+
+#### Weak Learner
+Decision trees are used as the weak learner in gradient boosting.
+
+Specifically regression trees are used that output real values for splits and whose output can be added together, allowing subsequent models outputs to be added and “correct” the residuals in the predictions.
+
+Trees are constructed in a greedy manner, choosing the best split points based on purity scores like Gini or to minimize the loss.
+Initially, such as in the case of AdaBoost, very short decision trees were used that only had a single split, called a decision stump. Larger trees can be used generally with 4-to-8 levels.
+
+It is common to constrain the weak learners in specific ways, such as a maximum number of layers, nodes, splits or leaf nodes.
+This is to ensure that the learners remain weak, but can still be constructed in a greedy manner.
+
+#### Additive Model
+Trees are added one at a time, and existing trees in the model are not changed.
+
+A gradient descent procedure is used to minimize the loss when adding trees.
+Traditionally, gradient descent is used to minimize a set of parameters, such as the coefficients in a regression equation or weights in a neural network. After calculating error or loss, the weights are updated to minimize that error.
+
+Instead of parameters, we have weak learner sub-models or more specifically decision trees. After calculating the loss, to perform the gradient descent procedure, we must add a tree to the model that reduces the loss (i.e. follow the gradient). We do this by parameterizing the tree, then modify the parameters of the tree and move in the right direction by reducing the residual loss.
+
+Generally this approach is called functional gradient descent or gradient descent with functions.
+The output for the new tree is then added to the output of the existing sequence of trees in an effort to correct or improve the final output of the model.
+
+A fixed number of trees are added or training stops once loss reaches an acceptable level or no longer improves on an external validation dataset.
+
+### Improvements to Basic Gradient Boosting
+Gradient boosting is a greedy algorithm and can overfit a training dataset quickly.
+It can benefit from regularization methods that penalize various parts of the algorithm and generally improve the performance of the algorithm by reducing overfitting.
+In this section we will look at 4 enhancements to basic gradient boosting:
+* Tree Constraints
+* Shrinkage
+* Random sampling
+* Penalized Learning
+
+#### Tree Constraints
+It is important that the weak learners have skill but remain weak.
+There are a number of ways that the trees can be constrained.
+
+A good general heuristic is that the more constrained tree creation is, the more trees you will need in the model, and the reverse, where less constrained individual trees, the fewer trees that will be required.
+
+Below are some constraints that can be imposed on the construction of decision trees:
+* Number of trees, generally adding more trees to the model can be very slow to overfit. The advice is to keep adding trees until no further improvement is observed.
+* Tree depth, deeper trees are more complex trees and shorter trees are preferred. Generally, better results are seen with 4-8 levels.
+* Number of nodes or number of leaves, like depth, this can constrain the size of the tree, but is not constrained to a symmetrical structure if other constraints are used.
+* Number of observations per split imposes a minimum constraint on the amount of training data at a training node before a split can be considered
+* Minimum improvement to loss is a constraint on the improvement of any split added to a tree.
+
+#### Weighted Updates
+The predictions of each tree are added together sequentially.
+The contribution of each tree to this sum can be weighted to slow down the learning by the algorithm. This weighting is called a shrinkage or a learning rate.
+
+Each update is simply scaled by the value of the “learning rate parameter” *v*
+
+The effect is that learning is slowed down, in turn require more trees to be added to the model, in turn taking longer to train, providing a configuration trade-off between the number of trees and learning rate.
+
+Decreasing the value of v [the learning rate] increases the best value for M [the number of trees].
+
+It is common to have small values in the range of 0.1 to 0.3, as well as values less than 0.1.
+
+Similar to a learning rate in stochastic optimization, shrinkage reduces the influence of each individual tree and leaves space for future trees to improve the model.
+#### Stochastic Gradient Boosting
+A big insight into bagging ensembles and random forest was allowing trees to be greedily created from subsamples of the training dataset.
+
+This same benefit can be used to reduce the correlation between the trees in the sequence in gradient boosting models.
+
+This variation of boosting is called stochastic gradient boosting.
+
+At each iteration a subsample of the training data is drawn at random (without replacement) from the full training dataset. The randomly selected subsample is then used, instead of the full sample, to fit the base learner.
+
+A few variants of stochastic boosting that can be used:
+* Subsample rows before creating each tree.
+* Subsample columns before creating each tree
+* Subsample columns before considering each split.
+Generally, aggressive sub-sampling such as selecting only 50% of the data has shown to be beneficial. According to user feedback, using column sub-sampling prevents over-fitting even more so than the traditional row sub-sampling.
+#### Penalized Gradient Boosting
+Additional constraints can be imposed on the parameterized trees in addition to their structure.
+Classical decision trees like CART are not used as weak learners, instead a modified form called a regression tree is used that has numeric values in the leaf nodes (also called terminal nodes). The values in the leaves of the trees can be called weights in some literature.
+
+As such, the leaf weight values of the trees can be regularized using popular regularization functions, such as:
+* L1 regularization of weights.
+* L2 regularization of weights.
+
+The additional regularization term helps to smooth the final learnt weights to avoid over-fitting. Intuitively, the regularized objective will tend to select a model employing simple and predictive functions.
+
+More details in 2 posts (russian):
+* https://habr.com/company/ods/blog/327250/
+* https://alexanderdyakonov.files.wordpress.com/2017/06/book_boosting_pdf.pdf
