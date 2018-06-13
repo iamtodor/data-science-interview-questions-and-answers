@@ -37,6 +37,8 @@
     - [Weighted Updates](#weighted-updates)
     - [Stochastic Gradient Boosting](#stochastic-gradient-boosting)
     - [Penalized Gradient Boosting](#penalized-gradient-boosting)
+  - [24. Разница между adaboost и XGBoost]
+  - [25. Data Mining Describe the decision tree model.]
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -508,3 +510,43 @@ The additional regularization term helps to smooth the final learnt weights to a
 More details in 2 posts (russian):
 * https://habr.com/company/ods/blog/327250/
 * https://alexanderdyakonov.files.wordpress.com/2017/06/book_boosting_pdf.pdf
+
+## 24. Разница между adaboost и XGBoost
+Оба - методы объединения тупых классификаторов (weak learners) в один крутой (strong learner). Крутой - это ансамбль тупых.
+
+Например одно решающее дерево (decision tree) - это тупой классификатор (weak learner), а случайный лес (random fores) из таких деревьев - это уже strong learner.
+
+Например, в качестве "элементарного" классификатора (weak learner) мы выбрали решающее дерево (можно придумать что-то другое: например микро-нейросети, тогда strong learner - это будет ансамбль микро-нейросетей, но говорят это бессмысленно). Если weak learner - это decision tree, то ансамблем из них будет являться случайный лес (random forest).
+
+Оба метода в процессе обучения будут наращивать ансамбль weak-лёрнеров, добавляя к ансамблю на каждой итерации обучения новые weak learners, т.е. в случае с лесом лес будет прирастать новыми деревьями. Разница между AdaBoost и XGBoost только в том, как происходит пополнение ансамбля.
+
+AdaBoost на каждой итерации меняет веса семплов в выборке. Он поднимает в выборке веса тех семплов, на которых мы ошибаемся. Веса семплов меняются пропорционально ошибке ансамбля на них. Мы тем самым меняем вероятностное распределение семплов -- у кого вес больше, те в дальнейшем будут выбираться чаще и этих семплов в выборке как-бы станет больше. Это как если бы мы накопипастили семплов, на которых мы ошибались и напихали бы их в исходную выборку. Мне непонятна мысль в подобных объяснения о том, что мол "мы сильнее фокусируемся на плохих примерах", она логики не добавляет и не факт что проясняет понимание.
+
+Кроме того, в AdaBoost каждый weak learner имеет свой вес в составе ансамбля (alpha weight) - этот вес тем выше, чем "умнее" получился этот weak learner, т.е. чем он меньше ошибается.
+
+XGBoost вообще никак не меняет выборку, никакое распределение в ней и т.п. Он строит первое дерево (weak learner). Этот первый weak learner "фитит модель" с какой-то успешностью, т.е. для каждого тестового примера имеет какую-то ошибку предсказания. Запишем её для каждого примера. Как-бы получим колонку errors -- как текущая модель (состоящая пока из одного weak learner) ошибается на каждом примере. Теерь допустим, что у нас бы был в распоряжении такой второй weak learner в ансамбле, который бы в качестве ответа выдавал само значение этой ошибки, но с противоположным знаком, то мы бы получили нулевую ошибку ансамбля (ведь ответ ансамбля - сумма ответов всех weak learner). Так XGBoost и работает - при построении очередного (пока не добавленного в ансамбль) weak learner (начиная со второго) в качестве колонки ответов ему подсовывается колонка ошибок с противоположным знаком, полученная при ходовых испытаниях текущего ансамбля. Таким образом мы как-бы учим не сам предмет, по которому экзамен, а методы обмана препода с целью получения того же результата "отлично" при любых заданных им вопросах.
+
+Адабуст - перевзвешивание примеров. Градиентный бустинг - предсказание функции потерь деревьями. Xgboost - к функции потерь регуляризационный член добавили (глубина + значения в листьях).
+
+## 25. Data Mining Describe the decision tree model
+A decision tree is a structure that includes a root node, branches, and leaf nodes. Each internal node denotes a test on an attribute, each branch denotes the outcome of a test, and each leaf node holds a class label. The topmost node in the tree is the root node.
+
+Each internal node represents a test on an attribute. Each leaf node represents a class.
+The benefits of having a decision tree are as follows:
+* It does not require any domain knowledge.
+* It is easy to comprehend.
+* The learning and classification steps of a decision tree are simple and fast.
+
+**Tree Pruning**
+
+Tree pruning is performed in order to remove anomalies in the training data due to noise or outliers. The pruned trees are smaller and less complex.
+
+**Tree Pruning Approaches**
+
+Here is the Tree Pruning Approaches listed below:
+* Pre-pruning − The tree is pruned by halting its construction early.
+* Post-pruning - This approach removes a sub-tree from a fully grown tree.
+
+**Cost Complexity**
+
+The cost complexity is measured by the following two parameters − Number of leaves in the tree, and Error rate of the tree.
