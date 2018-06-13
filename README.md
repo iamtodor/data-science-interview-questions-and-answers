@@ -37,8 +37,8 @@
     - [Weighted Updates](#weighted-updates)
     - [Stochastic Gradient Boosting](#stochastic-gradient-boosting)
     - [Penalized Gradient Boosting](#penalized-gradient-boosting)
-  - [24. Разница между adaboost и XGBoost]
-  - [25. Data Mining Describe the decision tree model.]
+- [24. Разница между adaboost и XGBoost](#24-Разница-между-adaboost-и-xgboost)
+- [25. Data Mining Describe the decision tree model.](#25-data-mining-describe-the-decision-tree-model)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
