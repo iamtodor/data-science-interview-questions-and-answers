@@ -39,6 +39,7 @@
     - [Penalized Gradient Boosting](#penalized-gradient-boosting)
 - [24. Разница между adaboost и XGBoost](#24-Разница-между-adaboost-и-xgboost)
 - [25. Data Mining Describe the decision tree model.](#25-data-mining-describe-the-decision-tree-model)
+- [26. Notes from Coursera Deep Learning courses by Andrew Ng](#26-notes-from-coursera-deep-learning-courses-by-andrew-ng)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -550,3 +551,6 @@ Here is the Tree Pruning Approaches listed below:
 **Cost Complexity**
 
 The cost complexity is measured by the following two parameters − Number of leaves in the tree, and Error rate of the tree.
+
+## 26. Notes from Coursera Deep Learning courses by Andrew Ng
+[Notes from Coursera Deep Learning courses by Andrew Ng](https://pt.slideshare.net/TessFerrandez/notes-from-coursera-deep-learning-courses-by-andrew-ng/)
