@@ -43,6 +43,7 @@
 - [25. Data Mining Describe the decision tree model.](#25-data-mining-describe-the-decision-tree-model)
 - [26. Notes from Coursera Deep Learning courses by Andrew Ng](#26-notes-from-coursera-deep-learning-courses-by-andrew-ng)
 - [27. What is a neural network?](#27-what-is-a-neural-network)
+- [28. How do you deal with sparse data?](#28-how-do-you-deal-with-sparse-data)
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -569,3 +570,10 @@ Backpropagation performs a gradient descent within the solution's vector space t
 Since the nature of the error space can not be known a priori, neural network analysis often requires a large number of individual runs to determine the best solution. Most learning rules have built-in mathematical terms to assist in this process which control the 'speed' (Beta-coefficient) and the 'momentum' of the learning. The speed of learning is actually the rate of convergence between the current solution and the global minimum. Momentum helps the network to overcome obstacles (local minima) in the error surface and settle down at or near the global minimum.
 
 Once a neural network is 'trained' to a satisfactory level it may be used as an analytical tool on other data. To do this, the user no longer specifies any training runs and instead allows the network to work in forward propagation mode only. New inputs are presented to the input pattern where they filter into and are processed by the middle layers as though training were taking place, however, at this point the output is retained and no backpropagation occurs. The output of a forward propagation run is the predicted model for the data which can then be used for further analysis and interpretation.
+
+## 28. How do you deal with sparse data?
+We could take a look at L1 regularization since it best fits the sparse data and does feature selection. If linear relationship - linear regression either - svm. Also it would be nice to use one-hot-encoding or bag-of-words. 
+A one hot encoding is a representation of categorical variables as binary vectors.
+This first requires that the categorical values be mapped to integer values.
+Then, each integer value is represented as a binary vector that is all zero values except the index of the integer, which is marked with a 1.
+
