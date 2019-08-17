@@ -44,6 +44,8 @@
 - [26. Notes from Coursera Deep Learning courses by Andrew Ng](#26-notes-from-coursera-deep-learning-courses-by-andrew-ng)
 - [27. What is a neural network?](#27-what-is-a-neural-network)
 - [28. How do you deal with sparse data?](#28-how-do-you-deal-with-sparse-data)
+- [28. RNN and LSTM](#29-rnn-and-lstm)
+
 
 ## 1. Why do you use feature selection?
 Feature selection is the process of selecting a subset of relevant features for use in model construction. Feature selection is itself useful, but it mostly acts as a filter, muting out features that aren’t useful in addition to your existing features.
@@ -577,3 +579,9 @@ A one hot encoding is a representation of categorical variables as binary vector
 This first requires that the categorical values be mapped to integer values.
 Then, each integer value is represented as a binary vector that is all zero values except the index of the integer, which is marked with a 1.
 
+## 29. RNN and LSTM
+Here are a few of my favorites:
+* [Understanding LSTM Networks, Chris Olah's LSTM post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+* [Exploring LSTMs, Edwin Chen's LSTM post](http://blog.echen.me/2017/05/30/exploring-lstms/)
+* [The Unreasonable Effectiveness of Recurrent Neural Networks, Andrej Karpathy's blog post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+* [CS231n Lecture 10 - Recurrent Neural Networks, Image Captioning, LSTM, Andrej Karpathy's lecture](https://www.youtube.com/watch?v=iX5V1WpxxkY)
