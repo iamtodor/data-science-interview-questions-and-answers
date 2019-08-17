@@ -44,7 +44,7 @@
 - [26. Notes from Coursera Deep Learning courses by Andrew Ng](#26-notes-from-coursera-deep-learning-courses-by-andrew-ng)
 - [27. What is a neural network?](#27-what-is-a-neural-network)
 - [28. How do you deal with sparse data?](#28-how-do-you-deal-with-sparse-data)
-- [28. RNN and LSTM](#29-rnn-and-lstm)
+- [29. RNN and LSTM](#29-rnn-and-lstm)
 
 
 ## 1. Why do you use feature selection?
