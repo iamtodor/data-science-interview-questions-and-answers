@@ -22,7 +22,7 @@
 - [15. Describe the differences between and use cases for box plots and histograms](#15-describe-the-differences-between-and-use-cases-for-box-plots-and-histograms)
 - [16. How would you find an anomaly in a distribution?](#16-how-would-you-find-an-anomaly-in-a-distribution)
     - [Statistical methods](#statistical-methods)
-    - [Метрические методы](#)
+    - [Metric methods](#metric-methods)
 - [17. How do you deal with outliers in your data?](#17-how-do-you-deal-with-outliers-in-your-data)
 - [18. How do you deal with sparse data?](#18-how-do-you-deal-with-sparse-data)
 - [19. Big Data Engineer Can you explain what REST is?](#19-big-data-engineer-can-you-explain-what-rest-is)
@@ -39,7 +39,7 @@
     - [Weighted Updates](#weighted-updates)
     - [Stochastic Gradient Boosting](#stochastic-gradient-boosting)
     - [Penalized Gradient Boosting](#penalized-gradient-boosting)
-- [24. Разница между adaboost и XGBoost](#24-Разница-между-adaboost-и-xgboost)
+- [24. Difference between AdaBoost and XGBoost](#24-difference-between-AdaBoost-and-XGBoost)
 - [25. Data Mining Describe the decision tree model.](#25-data-mining-describe-the-decision-tree-model)
 - [26. Notes from Coursera Deep Learning courses by Andrew Ng](#26-notes-from-coursera-deep-learning-courses-by-andrew-ng)
 - [27. What is a neural network?](#27-what-is-a-neural-network)
@@ -177,7 +177,7 @@ A type II error (or error of the second kind) is the failure to reject a false n
 ## 9. What are bias and variance, and what are their relation to modeling data?
 **Bias** is how far removed a model's predictions are from correctness, while variance is the degree to which these predictions vary between model iterations.
 
-Bias - это, условно говоря, расстояние между моделью которую ты можешь зафитить на бесконечных тренировочных данных (наилучшей моделью, которую может предоставить твоё пространство моделей) и "настоящей моделью" (которая генерирует данные).
+Bias is generally the distance between the model that you build on the training data (the best model that your model space can provide) and the “real model” (which generates data).
 
 **Error due to Bias**: Due to randomness in the underlying data sets, the resulting models will have a range of predictions. [Bias](https://en.wikipedia.org/wiki/Bias_of_an_estimator) measures how far off in general these models' predictions are from the correct value. The bias is error from erroneous assumptions in the learning algorithm. High bias can cause an algorithm to miss the relevant relations between features and target outputs (underfitting).
 
@@ -268,17 +268,18 @@ Variance is the expectation of the squared deviation of a random variable from i
 
 Var(X) = E[(X - m)^2], m=E[X]
 
-Мера разброса значений случайной величины относительно её математического ожидания.
+Variance is, thus, a measure of the scatter of the values of a random variable relative to its mathematical expectation.
 
 ## 14. Expected value
-Математи́ческое ожидание — [среднее значение случайной величины](https://ru.wikipedia.org/wiki/%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F_%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD%D0%B0) ([распределение вероятностей](https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2%D0%B5%D1%80%D0%BE%D1%8F%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9) случайной величины, рассматривается в теории вероятностей). Значение, которое случайная величина принимает с наибольшей вероятностью.
+Expected value — [Expected Value](https://en.wikipedia.org/wiki/Expected_value) ([Probability Distribution](https://en.wikipedia.org/wiki/Probability_distribution) In a probability distribution, expected value is the value that a random variable takes with greatest likelihood. 
 
-Предположим теперь, что мы знаем закон распределения случайной величины x, то есть знаем, что случайная величина x может принимать значения x1, x2, ..., xk с вероятностями p1, p2, ..., pk.
-Математическое ожидание Mx случайной величины x равно.
-Математическое ожидание случайной величины X (обозначается M(X) или реже E(X)) характеризует среднее значение случайной величины (дискретной или непрерывной). Мат. ожидание - это первый начальный момент заданной СВ.
+Based on the law of distribution of a random variable x, we know that a random variable x can take values x1, x2, ..., xk with probabilities p1, p2, ..., pk.
+The mathematical expectation M(x) of a random variable x is equal.
+The mathematical expectation of a random variable X (denoted by M (X) or less often E (X)) characterizes the average value of a random variable (discrete or continuous). Mathematical expectation is the first initial moment of a given CB.
 
-Математическое ожидание относят к так называемым характеристикам положения распределения (к которым также принадлежат мода и медиана). Эта характеристика описывает некое усредненное положение случайной величины на числовой оси. Скажем, если матожидание случайной величины - срока службы лампы, равно 100 часов, то считается, что значения срока службы сосредоточены (с обеих сторон) от этого значения (с тем или иным разбросом, о котором уже говорит дисперсия).
-Математическое ожидание дискретной случайной величины Х вычисляется как сумма произведений значений xi, которые принимает СВ Х, на соответствующие вероятности pi:
+Mathematical expectation is attributed to the so-called characteristics of the distribution position (to which the mode and median also belong). This characteristic describes a certain average position of a random variable on the numerical axis. Say, if the expectation of a random variable - the lamp life is 100 hours, then it is considered that the values of the service life are concentrated (on both sides) from this value (with dispersion on each side, indicated by the variance).
+
+The mathematical expectation of a discrete random variable X is calculated as the sum of the products of the values xi that the CB takes X by the corresponding probabilities pi:
 ```python
 import numpy as np
 X = [3,4,5,6,7]
@@ -306,8 +307,8 @@ Best steps to prevent anomalies is to implement policies or checks that can catc
 #### Statistical methods
 Statistically based anomaly detection uses this knowledge to discover outliers. A dataset can be standardized by taking the z-score of each point. A z-score is a measure of how many standard deviations a data point is away from the mean of the data. Any data-point that has a z-score higher than 3 is an outlier, and likely to be an anomaly. As the z-score increases above 3, points become more obviously anomalous. A z-score is calculated using the following equation. A box-plot is perfect for this application.
 
-#### Метрические методы
-Судя по числу публикаций, это самые популярные методы среди исследователей. В них постулируется существование некоторой метрики в пространстве объектов, которая и помогает найти аномалии. Интуитивно понятно, что у выброса мало соседей, а у типичной точки много. Поэтому хорошей мерой аномальности может служить, например «расстояние до k-го соседа» (см. метод [Local Outlier Factor](https://en.wikipedia.org/wiki/Local_outlier_factor)). Здесь используются специфические метрики, например [расстояние Махалонобиса](https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%9C%D0%B0%D1%85%D0%B0%D0%BB%D0%B0%D0%BD%D0%BE%D0%B1%D0%B8%D1%81%D0%B0). Мера расстояния между векторами случайных величин, обобщающая понятие евклидова расстояния. С помощью расстояния Махаланобиса можно определять сходство неизвестной и известной выборки. Оно отличается от расстояния Евклида тем, что учитывает корреляции между переменными и инвариантно к масштабу.
+#### Metric method
+Judging by the number of publications, metric methods are the most popular methods among researchers. They postulate the existence of a certain metric in the space of objects, which helps to find anomalies. Intuitively, the anomaly has few neighbors in the instannce space, and a typical point has many. Therefore, a good measure of anomalies can be, for example, the «distance to the k-th neighbor». (See method: [Local Outlier Factor](https://en.wikipedia.org/wiki/Local_outlier_factor)). Specific metrics are used here, for example [Mahalonobis distance] (https://en.wikipedia.org/wiki/Mahalanobis_distance). Mahalonobis distance is a measure of distance between vectors of random variables, generalizing the concept of Euclidean distance. Using Mahalonobis distance, it is possible to determine the similarity of unknown and known samples. It differs from Euclidean distance in that it takes into account correlations between variables and is scale invariant.
 ![alt text](images/metrical-methods.png)
 
 The most common form of clustering-based anomaly detection is done with prototype-based clustering.
@@ -348,19 +349,19 @@ When predictor variables are correlated, the estimated regression coefficient of
 
 In statistics, multicollinearity (also collinearity) is a phenomenon in which two or more predictor variables in a multiple regression model are highly correlated, meaning that one can be linearly predicted from the others with a substantial degree of accuracy. In this situation the coefficient estimates of the multiple regression may change erratically in response to small changes in the model or the data. Multicollinearity does not reduce the predictive power or reliability of the model as a whole, at least within the sample data set; it only affects calculations regarding individual predictors. That is, a multiple regression model with correlated predictors can indicate how well the entire bundle of predictors predicts the outcome variable, but it may not give valid results about any individual predictor, or about which predictors are redundant with respect to others.
 
-Последствия мультиколлинеарности:
-* Оценки коэффициентов остаются несмещенными
-* Стандартные ошибки коэффициентов увеличиваются
-* Вычисленные t-статистики занижены.
-* Оценки становится очень чувствительными к изменению спецификации и изменению отдельных наблюдений.
-* Общее качество уравнения, а также оценки переменных, не связанных мультиколлинеарностью, остаются незатронутыми.
-* Чем ближе мультиколлинеарность к совершенной (строгой), тем серьезнее ее последствия.
+The consequences of multicollinearity:
+* Ratings estimates remain unbiased.
+* Standard coefficient errors increase.
+* The calculated t-statistics are underestimated.
+* Estimates become very sensitive to changes in specifications and changes in individual observations.
+* The overall quality of the equation, as well as estimates of variables not related to multicollinearity, remain unaffected.
+* The closer multicollinearity to perfect (strict), the more serious its consequences.
 
-Индикаторы мультиколлинеарности:
-1. Высокий R2 и незначимые коэффициенты.
-2. Сильная парная корреляция предикторов.
-3. Сильные частные корреляции предикторов.
-4. Высокий VIF – variance inflation factor.
+Indicators of multicollinearity: 
+1. High R2 and negligible odds.
+2. Strong pair correlation of predictors.
+3. Strong partial correlations of predictors.
+4. High VIF - variance inflation factor.
 
 Confidence interval (CI) is a type of interval estimate (of a population parameter) that is computed from the observed data. The confidence level is the frequency (i.e., the proportion) of possible confidence intervals that contain the true value of their corresponding parameter. In other words, if confidence intervals are constructed using a given confidence level in an infinite number of independent experiments, the proportion of those intervals that contain the true value of the parameter will match the confidence level.
 
@@ -518,22 +519,16 @@ More details in 2 posts (russian):
 * https://habr.com/company/ods/blog/327250/
 * https://alexanderdyakonov.files.wordpress.com/2017/06/book_boosting_pdf.pdf
 
-## 24. Разница между adaboost и XGBoost
-Оба - методы объединения тупых классификаторов (weak learners) в один крутой (strong learner). Крутой - это ансамбль тупых.
+## 24. Difference between AdaBoost and XGBoost.
+Both methods combine weak learners into one strong learner. For example, one decision tree is a weak learner, and an emsemble of them would be a random forest model, which is a strong learner. 
 
-Например одно решающее дерево (decision tree) - это тупой классификатор (weak learner), а случайный лес (random fores) из таких деревьев - это уже strong learner.
+Both methods in the learning process will increase the ensemble of weak-trainers, adding new weak learners to the ensemble at each training iteration, i.e. in the case of the forest, the forest will grow with new trees. The only difference between AdaBoost and XGBoost is how the ensemble is replenished.
 
-Например, в качестве "элементарного" классификатора (weak learner) мы выбрали решающее дерево (можно придумать что-то другое: например микро-нейросети, тогда strong learner - это будет ансамбль микро-нейросетей, но говорят это бессмысленно). Если weak learner - это decision tree, то ансамблем из них будет являться случайный лес (random forest).
+AdaBoost works by weighting the observations, putting more weight on difficult to classify instances and less on those already handled well. New weak learners are added sequentially that focus their training on the more difficult patterns. AdaBoost at each iteration changes the sample weights in the sample. It raises the weight of the samples in which more mistakes were made. The sample weights vary in proportion to the ensemble error. We thereby change the probabilistic distribution of samples - those that have more weight will be selected more often in the future. It is as if we had accumulated samples on which more mistakes were made and would use them instead of the original sample. In addition, in AdaBoost, each weak learner has its own weight in the ensemble (alpha weight) - this weight is higher, the “smarter” this weak learner is, i.e. than the learner least likely to make mistakes.
 
-Оба метода в процессе обучения будут наращивать ансамбль weak-лёрнеров, добавляя к ансамблю на каждой итерации обучения новые weak learners, т.е. в случае с лесом лес будет прирастать новыми деревьями. Разница между AdaBoost и XGBoost только в том, как происходит пополнение ансамбля.
+XGBoost does not change the selection or the distribution of observations at all. XGBoost builds the first tree (weak learner), which will fit the observations with some prediction error. A second tree (weak learner) is then added to correct the errors made by the existing model. Errors are minimized using a gradient descent algorithm. Regularization can also be used to penalize more complex models through both Lasso and Ridge regularization. 
 
-AdaBoost на каждой итерации меняет веса семплов в выборке. Он поднимает в выборке веса тех семплов, на которых мы ошибаемся. Веса семплов меняются пропорционально ошибке ансамбля на них. Мы тем самым меняем вероятностное распределение семплов -- у кого вес больше, те в дальнейшем будут выбираться чаще и этих семплов в выборке как-бы станет больше. Это как если бы мы накопипастили семплов, на которых мы ошибались и напихали бы их в исходную выборку. Мне непонятна мысль в подобных объяснения о том, что мол "мы сильнее фокусируемся на плохих примерах", она логики не добавляет и не факт что проясняет понимание.
-
-Кроме того, в AdaBoost каждый weak learner имеет свой вес в составе ансамбля (alpha weight) - этот вес тем выше, чем "умнее" получился этот weak learner, т.е. чем он меньше ошибается.
-
-XGBoost вообще никак не меняет выборку, никакое распределение в ней и т.п. Он строит первое дерево (weak learner). Этот первый weak learner "фитит модель" с какой-то успешностью, т.е. для каждого тестового примера имеет какую-то ошибку предсказания. Запишем её для каждого примера. Как-бы получим колонку errors -- как текущая модель (состоящая пока из одного weak learner) ошибается на каждом примере. Теерь допустим, что у нас бы был в распоряжении такой второй weak learner в ансамбле, который бы в качестве ответа выдавал само значение этой ошибки, но с противоположным знаком, то мы бы получили нулевую ошибку ансамбля (ведь ответ ансамбля - сумма ответов всех weak learner). Так XGBoost и работает - при построении очередного (пока не добавленного в ансамбль) weak learner (начиная со второго) в качестве колонки ответов ему подсовывается колонка ошибок с противоположным знаком, полученная при ходовых испытаниях текущего ансамбля. Таким образом мы как-бы учим не сам предмет, по которому экзамен, а методы обмана препода с целью получения того же результата "отлично" при любых заданных им вопросах.
-
-Адабуст - перевзвешивание примеров. Градиентный бустинг - предсказание функции потерь деревьями. Xgboost - к функции потерь регуляризационный член добавили (глубина + значения в листьях).
+In short, AdaBoost- reweighting examples. Gradient boosting - predicting the loss function of trees. Xgboost - the regularization term was added to the loss function (depth + values ​​in leaves).
 
 ## 25. Data Mining Describe the decision tree model
 A decision tree is a structure that includes a root node, branches, and leaf nodes. Each internal node denotes a test on an attribute, each branch denotes the outcome of a test, and each leaf node holds a class label. The topmost node in the tree is the root node.
