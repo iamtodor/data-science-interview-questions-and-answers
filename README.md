@@ -46,6 +46,7 @@
 - [28. How do you deal with sparse data?](#28-how-do-you-deal-with-sparse-data)
 - [29. RNN and LSTM](#29-rnn-and-lstm)
 - [30. Pseudo Labeling](#30-pseudo-labeling)
+- [31. Knowledge Distillation](#31-knowledge-distillation)
 
 
 ## 1. Why do you use feature selection?
@@ -585,3 +586,8 @@ Here are a few of my favorites:
 
 ## 30. Pseudo Labeling
 Pseudo-labeling is a technique that allows you to use predicted with **confidence** test data in your training process. This effectivey works by allowing your model to look at more samples, possibly varying in distributions. I have found [this](https://www.kaggle.com/cdeotte/pseudo-labeling-qda-0-969) Kaggle kernel to be useful in understanding how one can use pseudo-labeling in light of having too few train data points.
+
+## 31. Knowledge Distillation
+It is the process by which a considerably larger model is able to transfer its knowledge to a smaller one. Applications include NLP and object detection allowing for less powerful hardware to make good inferences without significant loss of accuracy.
+
+Example: model compression which is used to compress the knowledge of multiple models into a single neural network.
