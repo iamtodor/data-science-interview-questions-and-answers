@@ -45,6 +45,7 @@
 - [27. What is a neural network?](#27-what-is-a-neural-network)
 - [28. How do you deal with sparse data?](#28-how-do-you-deal-with-sparse-data)
 - [29. RNN and LSTM](#29-rnn-and-lstm)
+- [30. Pseudo Labeling](#30-pseudo-labeling)
 
 
 ## 1. Why do you use feature selection?
@@ -580,3 +581,6 @@ Here are a few of my favorites:
 * [Exploring LSTMs, Edwin Chen's LSTM post](http://blog.echen.me/2017/05/30/exploring-lstms/)
 * [The Unreasonable Effectiveness of Recurrent Neural Networks, Andrej Karpathy's blog post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 * [CS231n Lecture 10 - Recurrent Neural Networks, Image Captioning, LSTM, Andrej Karpathy's lecture](https://www.youtube.com/watch?v=iX5V1WpxxkY)
+
+## 30. Pseudo Labeling
+Pseudo-labeling is a technique that allows you to use predicted with **confidence** test data in your training process. This effectivey works by allowing your model to look at more samples, possibly varying in distributions. I have found [this](https://www.kaggle.com/cdeotte/pseudo-labeling-qda-0-969) Kaggle kernel to be useful in understanding how one can use pseudo-labeling in light of having too few train data points.
