@@ -591,3 +591,5 @@ Pseudo-labeling is a technique that allows you to use predicted with **confidenc
 It is the process by which a considerably larger model is able to transfer its knowledge to a smaller one. Applications include NLP and object detection allowing for less powerful hardware to make good inferences without significant loss of accuracy.
 
 Example: model compression which is used to compress the knowledge of multiple models into a single neural network.
+
+[Explanation](https://nervanasystems.github.io/distiller/knowledge_distillation.html)
