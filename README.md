@@ -249,7 +249,10 @@ As the target variable is not continuous, binary classification model predicts t
 * Error Rate = 1 – Accuracy
 * F-measure = 2 / ((1 / Precision) + (1 / Recall)) = 2 * (precision * recall) / (precision + recall)
 * ROC (Receiver Operating Characteristics) = plot of FPR vs TPR
-* AUC (Area Under the Curve)
+* AUC (Area Under the [ROC] Curve)  
+Performance measure across all classification thresholds. Treated as the probability that a model ranks a randomly chosen positive sample higher than negative
+
+
 
 ## 11. What are some ways I can make my model more robust to outliers?
 There are several ways to make a model more robust to outliers, from different points of view (data preparation or model building). An outlier in the question and answer is assumed being unwanted, unexpected, or a must-be-wrong value to the human’s knowledge so far (e.g. no one is 200 years old) rather than a rare event which is possible but rare.
