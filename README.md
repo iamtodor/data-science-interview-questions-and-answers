@@ -45,6 +45,8 @@
 - [27. What is a neural network?](#27-what-is-a-neural-network)
 - [28. How do you deal with sparse data?](#28-how-do-you-deal-with-sparse-data)
 - [29. RNN and LSTM](#29-rnn-and-lstm)
+- [30. Pseudo Labeling](#30-pseudo-labeling)
+- [31. Knowledge Distillation](#31-knowledge-distillation)
 
 
 ## 1. Why do you use feature selection?
@@ -247,7 +249,10 @@ As the target variable is not continuous, binary classification model predicts t
 * Error Rate = 1 – Accuracy
 * F-measure = 2 / ((1 / Precision) + (1 / Recall)) = 2 * (precision * recall) / (precision + recall)
 * ROC (Receiver Operating Characteristics) = plot of FPR vs TPR
-* AUC (Area Under the Curve)
+* AUC (Area Under the [ROC] Curve)  
+Performance measure across all classification thresholds. Treated as the probability that a model ranks a randomly chosen positive sample higher than negative
+
+
 
 ## 11. What are some ways I can make my model more robust to outliers?
 There are several ways to make a model more robust to outliers, from different points of view (data preparation or model building). An outlier in the question and answer is assumed being unwanted, unexpected, or a must-be-wrong value to the human’s knowledge so far (e.g. no one is 200 years old) rather than a rare event which is possible but rare.
@@ -580,3 +585,14 @@ Here are a few of my favorites:
 * [Exploring LSTMs, Edwin Chen's LSTM post](http://blog.echen.me/2017/05/30/exploring-lstms/)
 * [The Unreasonable Effectiveness of Recurrent Neural Networks, Andrej Karpathy's blog post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 * [CS231n Lecture 10 - Recurrent Neural Networks, Image Captioning, LSTM, Andrej Karpathy's lecture](https://www.youtube.com/watch?v=iX5V1WpxxkY)
+* [Jay Alammar's The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/) the guy generally focuses on visualizing different ML concepts
+
+## 30. Pseudo Labeling
+Pseudo-labeling is a technique that allows you to use predicted with **confidence** test data in your training process. This effectivey works by allowing your model to look at more samples, possibly varying in distributions. I have found [this](https://www.kaggle.com/cdeotte/pseudo-labeling-qda-0-969) Kaggle kernel to be useful in understanding how one can use pseudo-labeling in light of having too few train data points.
+
+## 31. Knowledge Distillation
+It is the process by which a considerably larger model is able to transfer its knowledge to a smaller one. Applications include NLP and object detection allowing for less powerful hardware to make good inferences without significant loss of accuracy.
+
+Example: model compression which is used to compress the knowledge of multiple models into a single neural network.
+
+[Explanation](https://nervanasystems.github.io/distiller/knowledge_distillation.html)
