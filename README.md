@@ -47,6 +47,7 @@
 - [29. RNN and LSTM](#29-rnn-and-lstm)
 - [30. Pseudo Labeling](#30-pseudo-labeling)
 - [31. Knowledge Distillation](#31-knowledge-distillation)
+- [32. What is an inductive bias?](#32-what-is-an-inductive-bias)
 
 
 ## 1. Why do you use feature selection?
@@ -596,3 +597,9 @@ It is the process by which a considerably larger model is able to transfer its k
 Example: model compression which is used to compress the knowledge of multiple models into a single neural network.
 
 [Explanation](https://nervanasystems.github.io/distiller/knowledge_distillation.html)
+
+## 32. What is an inductive bias?
+A model's inductive bias is referred to as assumptions made within that model to learn your target function from independent variables, your features. Without these assumptions, there is a whole space of solutions to our problem and finding the one that works best becomes a problem. Found [this](https://stackoverflow.com/questions/35655267/what-is-inductive-bias-in-machine-learning) StackOverflow question useful to look at and explore.
+
+Consider an example of an inducion bias when choosing a learning algorithm with the minimum cross-validation (CV) error. Here, we **rely** on the hypothesis of the minimum CV error and **hope** it is able to generalize well on the data yet to be seen. Effectively, this choice is what helps us (in this case) make a choice in favor of the learning algorithm (or model) being tried.
+
