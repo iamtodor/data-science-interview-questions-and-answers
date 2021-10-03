@@ -48,6 +48,7 @@
 - [30. Pseudo Labeling](#30-pseudo-labeling)
 - [31. Knowledge Distillation](#31-knowledge-distillation)
 - [32. What is an inductive bias?](#32-what-is-an-inductive-bias)
+- [33. What is a confidence interval in layman's terms?](#33-confidence-interval-in-layman's-terms)
 
 
 ## 1. Why do you use feature selection?
@@ -603,3 +604,5 @@ A model's inductive bias is referred to as assumptions made within that model to
 
 Consider an example of an inducion bias when choosing a learning algorithm with the minimum cross-validation (CV) error. Here, we **rely** on the hypothesis of the minimum CV error and **hope** it is able to generalize well on the data yet to be seen. Effectively, this choice is what helps us (in this case) make a choice in favor of the learning algorithm (or model) being tried.
 
+## 33. What is a confidence interval in layman's terms?
+Confidence interval as the name suggests is the amount of confidence associated with an interval of values to get the desired outcome. For example : if 100 - 200 range is a 95% confidence interval , it implies that someone can have 95% assurance that the data point or any desired value is present in that range.
